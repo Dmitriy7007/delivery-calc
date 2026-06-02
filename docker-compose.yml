@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    container_name: domingo_calc_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: domingo
+      POSTGRES_PASSWORD: domingo_pass
+      POSTGRES_DB: domingo_calc
+    ports:
+      - '5433:5432'
+    volumes:
+      - calcdata:/var/lib/postgresql/data
+
+volumes:
+  calcdata:
